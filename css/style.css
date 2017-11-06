@@ -1,0 +1,175 @@
+body {
+  font-family: 'Bree Serif', serif;
+
+  width: 600px;
+  margin: 20px auto;
+}
+
+
+
+/*////////////////////////////////////*/
+/*////////////// Header //////////////*/
+/*////////////////////////////////////*/
+
+#filterTasks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #F1F1F1;
+
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+#filterTasks h1 {
+  font-size: 1.4em
+}
+
+.actions span {
+  background-color: white;
+  border: 1px solid #CCC;
+  padding: .4em;
+
+  cursor: pointer;
+}
+
+.actions span:hover {
+  background-color: lightgray;
+}
+
+.actions span:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.actions span:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.actions span:not(:last-child) {
+  border-right: none;
+}
+
+
+
+/*////////////////////////////////////*/
+/*////////////// Tasks ///////////////*/
+/*////////////////////////////////////*/
+
+#listTasks {
+  margin-bottom: 1em;
+
+  max-height: 400px;
+
+  overflow-y: scroll;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: .8em 0 .8em .5em;
+
+  border-bottom: 1px solid #CCC;
+  border-left: 4px solid red;
+  border-radius: 5px 0 0 5px;
+
+  transition: .05s ease-out;
+}
+
+.todo-item:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.todo-item:hover {
+  cursor: default;
+  border-left-width: 8px;
+}
+
+.todo-item span {
+  padding-top: .1em;
+  padding-bottom: .1em;
+}
+
+#listTasks .actions span:hover {
+  background-color: lightgray;
+}
+
+.separator {
+  border: 2px solid #AAA;
+}
+
+
+
+/*////////////////////////////////////*/
+/*/////////////// Form ///////////////*/
+/*////////////////////////////////////*/
+
+#newTask {
+  margin-bottom: 1em;
+}
+
+input[type=text],
+input[type=submit] {
+  padding: 0.4em;
+
+  border: 1px solid #CCC;
+}
+
+input[type=text] {
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+}
+
+input[type=text]:focus {
+  outline: none;
+  box-shadow: 0 0 5px skyblue;
+}
+
+input[type=submit] {
+  background-color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+input[type=submit]:hover {
+  color: white;
+  background-color: gray;
+  border-radius: 0 5px 5px 0;
+}
+
+input[type=submit]:focus {
+  outline: none;
+  box-shadow: 0 0 5px skyblue;
+}
+
+
+/*////////////////////////////////////*/
+/*////////////// Footer //////////////*/
+/*////////////////////////////////////*/
+
+footer {
+  text-align: center;
+  color: #333;
+}
+
+
+
+
+
+
+/*#filterTasks {
+  background-color: lightcoral;
+}
+
+#listTasks {
+  background-color: lightblue;
+}*/
+
+/*#newTask {
+  background-color: lightgreen;
+}*/
+
+/*#copyright {
+  background-color: wheat;
+}*/
