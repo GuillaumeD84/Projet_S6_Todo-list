@@ -57,6 +57,10 @@ body {
   cursor: pointer;
 }
 
+.actions span i:hover {
+  cursor: pointer;
+}
+
 
 
 /*////////////////////////////////////*/

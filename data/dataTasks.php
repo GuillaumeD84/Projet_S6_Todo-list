@@ -15,7 +15,7 @@ $todoList = [
   [
     'title' => 'Développer une todo list',
     'category' => 'work',
-    'color' => 'red',
+    'color' => 'dimgray',
     'status' => false
   ],
   [
@@ -33,13 +33,13 @@ $todoList = [
   [
     'title' => 'Découvrir PHP',
     'category' => 'work',
-    'color' => 'red',
+    'color' => 'dimgray',
     'status' => true
   ],
   [
     'title' => 'Faire le ménage',
     'category' => 'house',
-    'color' => 'gold',
+    'color' => 'chocolate',
     'status' => false
   ],
 
