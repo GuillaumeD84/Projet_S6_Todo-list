@@ -1,8 +1,8 @@
 <ul id="listTasks">
   <?php
-    for ($i=1; $i <= 20; $i++) {
-      echo '<li class="todo-item">';
-      echo '<div class="task-name">Tâche '.$i.'</div>';
+    foreach ($todoList as $task) {
+      echo '<li class="todo-item cat-'.$task['category'].' color-'.$task['color'].' status-'.($task['status'] ? 'yes' : 'no').'">';
+      echo '<div class="task-name">'.$task['title'].'</div>';
       include('taskIcons.php');
       echo '</li>';
     }
