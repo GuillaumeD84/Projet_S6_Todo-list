@@ -1,6 +1,8 @@
 <?php
 
   require_once('data/dataTasks.php');
+  require_once('data/colors.php');
+  require_once('data/categories.php');
 
   require_once('templates/header.php');
   require_once('templates/content.php');

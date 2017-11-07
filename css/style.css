@@ -20,6 +20,8 @@ body {
 
   padding: 1em;
   margin-bottom: 1em;
+
+  position: relative;
 }
 
 #filterTasks h1 {
@@ -89,22 +91,22 @@ body {
   transition: .05s ease-out;
 }
 
-/* Couleur des tâches */
+/* Couleur des tÃ¢ches */
+.color-dimgray { border-left-color: dimgray; }
 .color-cornflowerblue { border-left-color: cornflowerblue; }
-.color-chocolate { border-left-color: chocolate; }
+.color-rebeccapurple { border-left-color: rebeccapurple; }
 .color-forestgreen { border-left-color: forestgreen; }
 .color-gold { border-left-color: gold; }
+.color-chocolate { border-left-color: chocolate; }
 .color-red { border-left-color: red; }
-.color-rebeccapurple { border-left-color: rebeccapurple; }
-.color-dimgray { border-left-color: dimgray; }
 
+.color-dimgray .task-name { color: dimgray; }
 .color-cornflowerblue .task-name { color: cornflowerblue; }
-.color-chocolate .task-name { color: chocolate; }
+.color-rebeccapurple .task-name { color: rebeccapurple; }
 .color-forestgreen .task-name { color: forestgreen; }
 .color-gold .task-name { color: gold; }
+.color-chocolate .task-name { color: chocolate; }
 .color-red .task-name { color: red; }
-.color-rebeccapurple .task-name { color: rebeccapurple; }
-.color-dimgray .task-name { color: dimgray; }
 
 /* Un 'text-decoration: line-through;' custom */
 /*.status-yes .task-name {
@@ -174,51 +176,58 @@ ul::-webkit-scrollbar-thumb {
   margin-bottom: 1em;
 }
 
-#newTaskName,
-#addTaskButton {
-  padding: 0.4em;
-
-  border: 1px solid #CCC;
-}
-
-input[type=text] {
-  border-right: none;
+#newTask :first-child {
   border-radius: 5px 0 0 5px;
 }
 
-input[type=text]:focus {
-  outline: none;
+#newTask :last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+#newTask :not(:first-child) {
+  border-left: none;
+}
+
+#newTask :not(:last-child) {
+  border-right: none;
+}
+
+#newTask *:hover {
   box-shadow: 0 0 5px skyblue;
+}
+
+#newTaskName,
+#newTaskCategory,
+#newTaskColor,
+#newTaskAddButton {
+  padding: 0.4em;
+
+  border: 1px solid gray;
+
+  outline: none;
 }
 
 #newTaskCategory,
 #newTaskColor {
-  border: none;
-
-  padding: 0.4em;
-
-  outline: none;
+  -webkit-appearance:none;
 }
 
 #newTaskColor {
-  background-color: red;
+  width: 25px;
+
+  background: linear-gradient(135deg, dimgray 0%, cornflowerblue 16.67%, rebeccapurple 33.34%, forestgreen 50%, gold 66.67%, chocolate 83.34%, red 100%);
 }
 
-input[type=submit] {
-  background-color: white;
-  border-radius: 0 5px 5px 0;
-
-  outline: none;
+#newTaskAddButton {
+  background-color: lightgray;
 }
 
-input[type=submit]:hover {
+#newTaskAddButton:hover {
   color: white;
   background-color: gray;
-
-  border-radius: 0 5px 5px 0;
 }
 
-input[type=submit]:active {
+#newTaskAddButton:active {
   color: black;
   background-color: skyblue;
 }
@@ -233,4 +242,47 @@ footer {
 
   text-align: center;
   color: #333;
+}
+
+
+/*////////////////////////////////////*/
+/*////////////// Filters /////////////*/
+/*////////////////////////////////////*/
+
+#filtersOption form {
+  display: inline-block;
+}
+
+#filtersDiv {
+  display: none;
+
+  padding: 10px;
+
+  border: 4px groove #555;
+  border-radius: 10px;
+
+  background-color: #EEE;
+
+  position: absolute;
+  z-index: 1;
+
+  top: 90%;
+  left: 45%;
+}
+
+#filtersDiv h1 {
+  margin-bottom: 5px;
+}
+
+#filtersDiv:hover {
+  cursor: default;
+}
+
+.filtersCategory {
+  margin-right: 20px;
+  float: left;
+}
+
+.filtersColor {
+  float: right;
 }

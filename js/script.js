@@ -3,6 +3,8 @@ var app = {
     app.createEvent();
 
     $('.fa-pencil-square-o').on('click', app.editItem);
+    $('#filterDisplayButton').on('click', app.displayFilters);
+    // $(document).on('click', app.hideFilters);
   },
   editItem: function(evt) {
 
@@ -15,8 +17,25 @@ var app = {
     editDiv.append(input);
 
   },
+  displayFilters: function() {
+    var filtersDivDisplay = $('.filters').css('display');
+
+    if (filtersDivDisplay === 'none') {
+      $('.filters').css('display', 'block');
+    }
+    else {
+      $('.filters').css('display', 'none');
+    }
+  },
+  hideFilters: function() {
+    var filtersDivDisplay = $('.filters').css('display');
+
+    if (filtersDivDisplay !== 'none') {
+      $('.filters').css('display', 'none');
+    }
+  },
   createEvent: function() {
-    var myButton = document.getElementById('addTaskButton');
+    var myButton = document.getElementById('newTaskAddButton');
     myButton.addEventListener('click', app.eventTest);
   },
   eventTest: function(evt) {

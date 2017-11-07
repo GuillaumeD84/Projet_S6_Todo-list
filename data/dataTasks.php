@@ -14,31 +14,31 @@ $todoList = [
 
   [
     'title' => 'Développer une todo list',
-    'category' => 'work',
+    'category' => 'Important',
     'color' => 'dimgray',
     'status' => false
   ],
   [
     'title' => 'Acheter du lait',
-    'category' => 'shop',
+    'category' => 'Shopping',
     'color' => 'rebeccapurple',
     'status' => false
   ],
   [
     'title' => 'Appeler Maxime',
-    'category' => 'work',
+    'category' => 'Job',
     'color' => 'cornflowerblue',
     'status' => true
   ],
   [
     'title' => 'Découvrir PHP',
-    'category' => 'work',
+    'category' => 'Job',
     'color' => 'dimgray',
     'status' => true
   ],
   [
     'title' => 'Faire le ménage',
-    'category' => 'house',
+    'category' => 'Home',
     'color' => 'chocolate',
     'status' => false
   ],
