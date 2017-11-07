@@ -21,13 +21,13 @@ $todoList = [
   [
     'title' => 'Acheter du lait',
     'category' => 'shop',
-    'color' => 'green',
+    'color' => 'rebeccapurple',
     'status' => false
   ],
   [
     'title' => 'Appeler Maxime',
     'category' => 'work',
-    'color' => 'blue',
+    'color' => 'cornflowerblue',
     'status' => true
   ],
   [
@@ -39,7 +39,7 @@ $todoList = [
   [
     'title' => 'Faire le ménage',
     'category' => 'house',
-    'color' => 'orange',
+    'color' => 'gold',
     'status' => false
   ],
 

@@ -30,8 +30,6 @@ body {
   background-color: white;
   border: 1px solid #CCC;
   padding: .4em;
-
-  cursor: pointer;
 }
 
 .actions span:hover {
@@ -48,6 +46,15 @@ body {
 
 .actions span:not(:last-child) {
   border-right: none;
+}
+
+.actions span a {
+  color: #000;
+  text-decoration: none;
+}
+
+.actions span a:hover {
+  cursor: pointer;
 }
 
 
@@ -79,21 +86,21 @@ body {
 }
 
 /* Couleur des tâches */
+.color-cornflowerblue { border-left-color: cornflowerblue; }
+.color-chocolate { border-left-color: chocolate; }
+.color-forestgreen { border-left-color: forestgreen; }
+.color-gold { border-left-color: gold; }
 .color-red { border-left-color: red; }
-.color-orange { border-left-color: orange; }
-.color-yellow { border-left-color: yellow; }
-.color-green { border-left-color: green; }
-.color-blue { border-left-color: blue; }
-.color-indigo { border-left-color: indigo; }
-.color-violet { border-left-color: violet; }
+.color-rebeccapurple { border-left-color: rebeccapurple; }
+.color-dimgray { border-left-color: dimgray; }
 
+.color-cornflowerblue .task-name { color: cornflowerblue; }
+.color-chocolate .task-name { color: chocolate; }
+.color-forestgreen .task-name { color: forestgreen; }
+.color-gold .task-name { color: gold; }
 .color-red .task-name { color: red; }
-.color-orange .task-name { color: orange; }
-.color-yellow .task-name { color: yellow; }
-.color-green .task-name { color: green; }
-.color-blue .task-name { color: blue; }
-.color-indigo .task-name { color: indigo; }
-.color-violet .task-name { color: violet; }
+.color-rebeccapurple .task-name { color: rebeccapurple; }
+.color-dimgray .task-name { color: dimgray; }
 
 /* Un 'text-decoration: line-through;' custom */
 /*.status-yes .task-name {

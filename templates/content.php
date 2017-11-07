@@ -5,9 +5,9 @@
     <header id="filterTasks">
       <h1>Todolist</h1>
       <div class="actions">
-        <span>All</span><!--
-        --><span>Todo</span><!--
-        --><span>Completed</span>
+        <span><a href="?">All</a></span><!--
+        --><span><a href="?finish=no">Todo</a></span><!--
+        --><span><a href="?finish=yes">Completed</a></span>
       </div>
     </header>
 
