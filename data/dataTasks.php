@@ -187,6 +187,12 @@ foreach ($tasksList as $key => $task) {
   // On filtre les tâches à afficher selon les données présentes dans le '$_GET'
   foreach ($tasksList as $key => $task) {
 
+    if (isset($_SESSION['removedTasksId'])) {
+      if (in_array($task['id'], $_SESSION['removedTasksId'])) {
+        continue;
+      }
+    }
+
     if (isset($finishFilter) && ($finishFilter === 'yes' && !$task['status'] || $finishFilter === 'no' && $task['status'])) {
       continue;
     }

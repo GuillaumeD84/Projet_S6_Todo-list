@@ -12,6 +12,9 @@
   // Templates de contenus
   require_once('templates/header.php');
   require_once('templates/content.php');
+    echo '<pre>';
+    print_r($_SESSION);
+    echo '</pre>';
   require_once('templates/footer.php');
 
 ?>

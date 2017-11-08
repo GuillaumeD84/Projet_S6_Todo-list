@@ -2,7 +2,7 @@
 
 session_start();
 
-// print_r($_POST);
+print_r($_POST);
 
 empty($_POST['newTaskName']) ? $newTaskName = 'No title' : $newTaskName = $_POST['newTaskName'];
 
@@ -21,6 +21,10 @@ $_SESSION['newTasks'][] = [
 // echo '</pre>';
 
 header('Location: ../index.php');
+
+// $urlArguments = 'category%5B%5D='.$_SESSION['category'][0];
+// header('Location: ../?'.$urlArguments);
+
 die();
 
 ?>

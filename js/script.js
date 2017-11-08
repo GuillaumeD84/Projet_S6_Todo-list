@@ -40,7 +40,17 @@ var app = {
   editSelectTagColor: function(evt) {
 
     $('#newTaskColor').css('background', $(evt.target)[0].value);
-    
+
+  },
+  deleteConfirmation: function(taskId) {
+    console.log(taskId);
+    var answer = confirm('Are you sure you want to delete this task ?');
+
+    if (answer) {
+      $('#hiddenInputTaskDelete').val('rm-' + taskId);
+      $('#hiddenFormTaskDelete').submit();
+    }
+
   }
 };
 

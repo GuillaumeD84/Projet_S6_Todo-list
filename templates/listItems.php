@@ -12,7 +12,7 @@
         --><?php endif; ?><!--
         --><span><i class="fa fa-tags" aria-hidden="true"></i></span><!--
         --><span><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span><!--
-        --><span><i class="fa fa-trash" aria-hidden="true"></i></span>
+        --><span><a class="fa fa-trash" aria-hidden="true" href="javascript:void(0)" onclick="app.deleteConfirmation(<?= $task['id']; ?>)"></a></span>
         &nbsp;
       </div>
 
@@ -21,3 +21,7 @@
   <?php } ?>
 
 </ul>
+
+<form id="hiddenFormTaskDelete" action="templates/removeTask.php" method="post">
+  <input id="hiddenInputTaskDelete" type="hidden" name="deleteTask" value="" />
+</form>
