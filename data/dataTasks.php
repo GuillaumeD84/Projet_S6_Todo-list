@@ -14,7 +14,7 @@ $todoList = [
 
   [
     'title' => 'Développer une todo list',
-    'category' => 'Important',
+    'category' => 'Job',
     'color' => 'dimgray',
     'status' => false
   ],
@@ -38,7 +38,7 @@ $todoList = [
   ],
   [
     'title' => 'Faire le ménage',
-    'category' => 'Home',
+    'category' => 'Chores',
     'color' => 'chocolate',
     'status' => false
   ],

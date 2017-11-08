@@ -4,7 +4,7 @@ var app = {
 
     $('.fa-pencil-square-o').on('click', app.editItem);
     $('#filterDisplayButton').on('click', app.displayFilters);
-    // $(document).on('click', app.hideFilters);
+    $(document).on('click', app.hideFilters);
   },
   editItem: function(evt) {
 
@@ -17,21 +17,18 @@ var app = {
     editDiv.append(input);
 
   },
-  displayFilters: function() {
-    var filtersDivDisplay = $('.filters').css('display');
-
-    if (filtersDivDisplay === 'none') {
-      $('.filters').css('display', 'block');
-    }
-    else {
-      $('.filters').css('display', 'none');
-    }
+  displayFilters: function(evt) {
+    evt.stopPropagation();
+    $('#filtersDiv').toggle(300, 'linear');
   },
-  hideFilters: function() {
-    var filtersDivDisplay = $('.filters').css('display');
+  hideFilters: function(evt) {
 
-    if (filtersDivDisplay !== 'none') {
-      $('.filters').css('display', 'none');
+    if (!($(evt.target).hasClass('filters') || $(evt.target).parent().hasClass('filters'))) {
+      var filtersDivDisplay = $('#filtersDiv').css('display');
+
+      if (filtersDivDisplay !== 'none') {
+        $('#filtersDiv').fadeOut(200);
+      }
     }
   },
   createEvent: function() {

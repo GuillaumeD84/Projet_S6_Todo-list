@@ -258,10 +258,10 @@ footer {
 
   padding: 10px;
 
-  border: 4px groove #555;
+  box-shadow: 0 0 10px black;
   border-radius: 10px;
 
-  background-color: #EEE;
+  background: linear-gradient(to bottom, #F4F4F4 0%,#E5E5E5 100%);
 
   position: absolute;
   z-index: 1;
@@ -278,11 +278,11 @@ footer {
   cursor: default;
 }
 
-.filtersCategory {
+#filtersCategory {
   margin-right: 20px;
   float: left;
 }
 
-.filtersColor {
+#filtersColor {
   float: right;
 }
