@@ -36,7 +36,7 @@ var app = {
     myButton.addEventListener('click', app.eventTest);
   },
   eventTest: function(evt) {
-    evt.preventDefault();
+    // evt.preventDefault();
     console.log('Clique clique clique !!!');
   }
 };

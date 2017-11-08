@@ -1,5 +1,5 @@
-<form id="newTask" method="post">
-  <input id="newTaskName" type="text" name="newTask" placeholder="Nouvelle tâche"><!--
+<form id="newTask" action="templates/addNewTask.php" method="post">
+  <input id="newTaskName" type="text" name="newTaskName" placeholder="Nouvelle tâche"><!--
 
   --><select id="newTaskCategory" name="taskCategorySelect">
   <?php foreach ($categoriesList as $category) { ?>
@@ -12,5 +12,5 @@
     <option value="<?= $color; ?>" style="background-color:<?= $color; ?>"></option>
   <?php } ?>
   </select><!--
-  --><input id="newTaskAddButton" type="submit" name="addTask" value="Ajouter">
+  --><input id="newTaskAddButton" type="submit" value="Ajouter">
 </form>

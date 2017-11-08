@@ -104,7 +104,14 @@ $tasksList = [
     'status' => false
   ],
 
-]
+];
+
+// On récupère les tâches ajoutées dans la session
+if (isset($_SESSION['newTasks'])) {
+  foreach ($_SESSION['newTasks'] as $newTask) {
+    $tasksList[] = $newTask;
+  }
+}
 
 ?>
 
