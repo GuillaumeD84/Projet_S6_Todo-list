@@ -19,7 +19,7 @@ var app = {
   },
   displayFilters: function(evt) {
     evt.stopPropagation();
-    $('#filtersDiv').toggle(300, 'linear');
+    $('#filtersDiv').toggle(200, 'linear');
   },
   hideFilters: function(evt) {
 

@@ -1,21 +1,56 @@
 <ul id="listTasks">
   <?php
+    // On stocke des données du '$_GET' dans notre '$_SESSION'
+    if (empty($_GET)) {
+      unset($_SESSION['finish'], $_SESSION['category'], $_SESSION['color']);
+    }
+
+    if (isset($_GET['clear'])) {
+      unset($_SESSION['finish']);
+    }
+
+    if (isset($_GET['finish'])) {
+      $_SESSION['finish'] = $_GET['finish'];
+      $finishFilter = $_GET['finish'];
+    }
+    elseif (isset($_SESSION['finish'])) {
+      $finishFilter = $_SESSION['finish'];
+    }
+
+    if (isset($_GET['category'])) {
+      $_SESSION['category'] = $_GET['category'];
+      $categoryFilter = $_GET['category'];
+    }
+    elseif (isset($_SESSION['category'])) {
+      $categoryFilter = $_SESSION['category'];
+    }
+
+    if (isset($_GET['color'])) {
+      $_SESSION['color'] = $_GET['color'];
+      $colorFilter = $_GET['color'];
+    }
+    elseif (isset($_SESSION['color'])) {
+      $colorFilter = $_SESSION['color'];
+    }
+
+    // On filtre les tâches à afficher selon les données présentes dans le '$_GET'
     foreach ($todoList as $task) {
-      if (isset($_GET['finish']) && ($_GET['finish'] === 'yes' && !$task['status'] || $_GET['finish'] === 'no' && $task['status'])) {
+      if (isset($finishFilter) && ($finishFilter === 'yes' && !$task['status'] || $finishFilter === 'no' && $task['status'])) {
         continue;
       }
 
-      if (isset($_GET['category']) && !in_array($task['category'], $_GET['category'])) {
+      if (isset($categoryFilter) && !in_array($task['category'], $categoryFilter)) {
         continue;
       }
 
-      if (isset($_GET['color']) && !in_array($task['color'], $_GET['color'])) {
+      if (isset($colorFilter) && !in_array($task['color'], $colorFilter)) {
         continue;
       }
   ?>
 
   <li class="todo-item cat-<?= $task['category'] ?> color-<?= $task['color']; ?> status-<?= ($task['status'] ? 'yes' : 'no') ?>">
-    <div class="task-name"><?= $task['title'] ?></div>
+    <div class="task-name">
+      <p><?= $task['title'] ?></p><span class="task-category"> - <?= $task['category'] ?></span></div>
 
     <div class="actions">
       <?php if ($task['status']): ?><span><i class="fa fa-check-square-o" aria-hidden="true"></i></span><!--

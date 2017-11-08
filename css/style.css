@@ -126,8 +126,19 @@ body {
   background-color: #EEE;
 }
 
-.status-yes .task-name {
+.status-yes .task-name p {
   text-decoration: line-through double black;
+}
+
+.task-name p {
+  display: inline-block;
+}
+
+.task-name .task-category {
+  padding: 0;
+
+  font-size: .7em;
+  color: #333;
 }
 
 .todo-item:not(:last-child) {

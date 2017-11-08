@@ -7,6 +7,7 @@
     'Chores',
     'Contacts',
     'Events',
+    'Gaming',
     'Home',
     'Important',
     'Job',

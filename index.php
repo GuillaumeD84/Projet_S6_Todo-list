@@ -3,12 +3,6 @@
   // On active les sessions
   session_start();
 
-  if(isset($_GET['save'])) {
-    $_SESSION['dataSaved'] = $_GET['save'];
-  }
-
-  var_dump($_SESSION);
-
   // Templates de données
   require_once('data/dataTasks.php');
   require_once('data/colors.php');
