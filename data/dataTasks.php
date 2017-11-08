@@ -5,6 +5,7 @@ $todoList = array();
 
 // Format par défault d'une tâche
 // [
+//   'id' => '',
 //   'title' => '',
 //   'category' => '',
 //   'color' => '',
@@ -14,90 +15,105 @@ $todoList = array();
 $tasksList = [
 
   [
+    'id' => 1,
     'title' => 'Développer une todo list',
     'category' => 'Job',
     'color' => 'dimgray',
     'status' => false
   ],
   [
+    'id' => 2,
     'title' => 'Acheter du lait',
     'category' => 'Shopping',
     'color' => 'rebeccapurple',
     'status' => false
   ],
   [
+    'id' => 3,
     'title' => 'Appeler le Psy',
     'category' => 'Important',
     'color' => 'red',
     'status' => true
   ],
   [
+    'id' => 4,
     'title' => 'Découvrir PHP',
     'category' => 'Job',
     'color' => 'dimgray',
     'status' => true
   ],
   [
+    'id' => 5,
     'title' => 'Faire le ménage',
     'category' => 'Chores',
     'color' => 'darkorange',
     'status' => false
   ],
   [
+    'id' => 6,
     'title' => 'Acheter des cookies',
     'category' => 'Important',
     'color' => 'forestgreen',
     'status' => false
   ],
   [
+    'id' => 7,
     'title' => 'Faire une pause',
     'category' => 'Misc.',
     'color' => 'cornflowerblue',
     'status' => false
   ],
   [
+    'id' => 8,
     'title' => 'Mangez 5 fruits et légumes par jour',
     'category' => 'Misc.',
     'color' => 'forestgreen',
     'status' => false
   ],
   [
+    'id' => 9,
     'title' => 'Replay !!!',
     'category' => 'Job',
     'color' => 'goldenrod',
     'status' => false
   ],
   [
+    'id' => 10,
     'title' => 'Réparer le volet',
     'category' => 'Home',
     'color' => 'darkorange',
     'status' => true
   ],
   [
+    'id' => 11,
     'title' => 'Appeler Yann',
     'category' => 'Contacts',
     'color' => 'rebeccapurple',
     'status' => false
   ],
   [
+    'id' => 12,
     'title' => 'AIM training',
     'category' => 'Gaming',
     'color' => 'dimgray',
     'status' => false
   ],
   [
+    'id' => 13,
     'title' => 'Acheter du café',
     'category' => 'Important',
     'color' => 'red',
     'status' => false
   ],
   [
+    'id' => 14,
     'title' => 'Jouer avec le chien',
     'category' => 'Home',
     'color' => 'cornflowerblue',
     'status' => true
   ],
   [
+    'id' => 15,
     'title' => 'S\'amuser avec les challenges de Julien',
     'category' => 'Job',
     'color' => 'goldenrod',
@@ -106,10 +122,27 @@ $tasksList = [
 
 ];
 
+if (!isset($_SESSION['nbrTask'])) $_SESSION['nbrTask'] = count($tasksList);
+
 // On récupère les tâches ajoutées dans la session
 if (isset($_SESSION['newTasks'])) {
   foreach ($_SESSION['newTasks'] as $newTask) {
     $tasksList[] = $newTask;
+  }
+}
+
+// Boucle qui edit les tâches
+foreach ($tasksList as $key => $task) {
+
+  if (array_key_exists($task['id'], $_SESSION['stateTasks'])) {
+
+    if ($_SESSION['stateTasks'][$task['id']] === 'y') {
+      $tasksList[$key]['status'] = true;
+    }
+    else {
+      $tasksList[$key]['status'] = false;
+    }
+
   }
 }
 
@@ -152,7 +185,7 @@ if (isset($_SESSION['newTasks'])) {
 
 
   // On filtre les tâches à afficher selon les données présentes dans le '$_GET'
-  foreach ($tasksList as $task) {
+  foreach ($tasksList as $key => $task) {
 
     if (isset($finishFilter) && ($finishFilter === 'yes' && !$task['status'] || $finishFilter === 'no' && $task['status'])) {
       continue;

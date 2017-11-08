@@ -6,7 +6,10 @@ session_start();
 
 empty($_POST['newTaskName']) ? $newTaskName = 'No title' : $newTaskName = $_POST['newTaskName'];
 
+$_SESSION['nbrTask']++;
+
 $_SESSION['newTasks'][] = [
+  'id' => $_SESSION['nbrTask'],
   'title' => $newTaskName,
   'category' => $_POST['taskCategorySelect'],
   'color' => $_POST['taskColorSelect'],
