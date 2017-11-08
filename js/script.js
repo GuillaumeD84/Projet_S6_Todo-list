@@ -1,10 +1,13 @@
 var app = {
   init: function() {
-    app.createEvent();
 
     $('.fa-pencil-square-o').on('click', app.editItem);
+
     $('#filterDisplayButton').on('click', app.displayFilters);
     $(document).on('click', app.hideFilters);
+
+    $('#newTaskColor').on('change', app.editSelectTagColor);
+
   },
   editItem: function(evt) {
 
@@ -18,8 +21,10 @@ var app = {
 
   },
   displayFilters: function(evt) {
+
     evt.stopPropagation();
     $('#filtersDiv').toggle(200, 'linear');
+
   },
   hideFilters: function(evt) {
 
@@ -30,14 +35,12 @@ var app = {
         $('#filtersDiv').fadeOut(200);
       }
     }
+
   },
-  createEvent: function() {
-    var myButton = document.getElementById('newTaskAddButton');
-    myButton.addEventListener('click', app.eventTest);
-  },
-  eventTest: function(evt) {
-    // evt.preventDefault();
-    console.log('Clique clique clique !!!');
+  editSelectTagColor: function(evt) {
+
+    $('#newTaskColor').css('background', $(evt.target)[0].value);
+    
   }
 };
 
