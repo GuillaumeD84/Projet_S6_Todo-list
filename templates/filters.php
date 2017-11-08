@@ -10,7 +10,7 @@
   <div id="filtersColor" class="filters">
     <h1>Colors</h1>
     <?php foreach ($colorsList as $color): ?>
-      <input type="checkbox" name="color[]" id="col" value="<?= $color; ?>"><?= $color; ?><br>
+      <input type="checkbox" name="color[]" id="col" value="<?= $color; ?>"><label for="col" class="color-<?= $color; ?>"><?= $color; ?></label><br>
     <?php endforeach; ?>
   </div>
 

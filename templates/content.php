@@ -3,7 +3,7 @@
   <div id="container">
     <!-- Header pour filtrer les tâches -->
     <header id="filterTasks">
-      <h1><a href="?">Todolist</a></h1>
+      <h1><a href="?">Todo<span>list</span></a></h1>
 
       <div id="filtersOption">
         <input id="filterDisplayButton" type="button" name="filterButton" value="Filters">

@@ -25,7 +25,18 @@ body {
 }
 
 #filterTasks h1 {
-  font-size: 1.4em
+  font-size: 1.4em;
+}
+
+#filterTasks h1 a {
+  color: black;
+  text-decoration: none;
+}
+
+#filterTasks h1 span {
+  color: blue;
+  text-transform: uppercase;
+  font-style: italic;
 }
 
 .actions span {
@@ -98,21 +109,21 @@ span.active a {
 }
 
 /* Couleur des tÃ¢ches */
-.color-dimgray { border-left-color: dimgray; }
-.color-cornflowerblue { border-left-color: cornflowerblue; }
-.color-rebeccapurple { border-left-color: rebeccapurple; }
-.color-forestgreen { border-left-color: forestgreen; }
-.color-gold { border-left-color: gold; }
-.color-chocolate { border-left-color: chocolate; }
-.color-red { border-left-color: red; }
+.colorborder-dimgray { border-left-color: dimgray; }
+.colorborder-cornflowerblue { border-left-color: cornflowerblue; }
+.colorborder-rebeccapurple { border-left-color: rebeccapurple; }
+.colorborder-forestgreen { border-left-color: forestgreen; }
+.colorborder-goldenrod { border-left-color: goldenrod; }
+.colorborder-darkorange { border-left-color: darkorange; }
+.colorborder-red { border-left-color: red; }
 
-.color-dimgray .task-name { color: dimgray; }
-.color-cornflowerblue .task-name { color: cornflowerblue; }
-.color-rebeccapurple .task-name { color: rebeccapurple; }
-.color-forestgreen .task-name { color: forestgreen; }
-.color-gold .task-name { color: gold; }
-.color-chocolate .task-name { color: chocolate; }
-.color-red .task-name { color: red; }
+.color-dimgray { color: dimgray; }
+.color-cornflowerblue { color: cornflowerblue; }
+.color-rebeccapurple { color: rebeccapurple; }
+.color-forestgreen { color: forestgreen; }
+.color-goldenrod { color: goldenrod; }
+.color-darkorange { color: darkorange; }
+.color-red { color: red; }
 
 /* Un 'text-decoration: line-through;' custom */
 /*.status-yes .task-name {

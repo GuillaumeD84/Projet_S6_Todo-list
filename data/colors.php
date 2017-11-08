@@ -7,8 +7,8 @@
     'cornflowerblue',
     'rebeccapurple',
     'forestgreen',
-    'gold',
-    'chocolate',
+    'goldenrod',
+    'darkorange',
     'red'
   ]
 

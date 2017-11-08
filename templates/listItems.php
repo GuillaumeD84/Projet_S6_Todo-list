@@ -1,10 +1,10 @@
 <ul id="listTasks">
   <?php foreach ($todoList as $task) { ?>
 
-    <li class="todo-item cat-<?= $task['category'] ?> color-<?= $task['color']; ?> status-<?= ($task['status'] ? 'yes' : 'no') ?>">
+    <li class="todo-item cat-<?= $task['category']; ?> status-<?= ($task['status'] ? 'yes' : 'no'); ?> colorborder-<?= $task['color']; ?>">
 
-      <div class="task-name">
-        <p><?= $task['title'] ?></p><span class="task-category"> - <?= $task['category'] ?></span></div>
+      <div class="task-name color-<?= $task['color']; ?>">
+        <p><?= $task['title']; ?></p><span class="task-category"> - <?= $task['category']; ?></span></div>
 
       <div class="actions">
         <?php if ($task['status']): ?><span><i class="fa fa-check-square-o" aria-hidden="true"></i></span><!--

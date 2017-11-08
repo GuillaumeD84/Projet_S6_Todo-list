@@ -40,7 +40,7 @@ $tasksList = [
   [
     'title' => 'Faire le ménage',
     'category' => 'Chores',
-    'color' => 'chocolate',
+    'color' => 'darkorange',
     'status' => false
   ],
   [
@@ -64,13 +64,13 @@ $tasksList = [
   [
     'title' => 'Replay !!!',
     'category' => 'Job',
-    'color' => 'gold',
+    'color' => 'goldenrod',
     'status' => false
   ],
   [
     'title' => 'Réparer le volet',
     'category' => 'Home',
-    'color' => 'chocolate',
+    'color' => 'darkorange',
     'status' => true
   ],
   [
@@ -100,7 +100,7 @@ $tasksList = [
   [
     'title' => 'S\'amuser avec les challenges de Julien',
     'category' => 'Job',
-    'color' => 'gold',
+    'color' => 'goldenrod',
     'status' => false
   ],
 
@@ -146,7 +146,7 @@ $tasksList = [
 
   // On filtre les tâches à afficher selon les données présentes dans le '$_GET'
   foreach ($tasksList as $task) {
-    
+
     if (isset($finishFilter) && ($finishFilter === 'yes' && !$task['status'] || $finishFilter === 'no' && $task['status'])) {
       continue;
     }
