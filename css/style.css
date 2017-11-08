@@ -63,7 +63,13 @@ body {
   cursor: pointer;
 }
 
+span.active {
+  background-color: gray;
+}
 
+span.active a {
+  color: white;
+}
 
 /*////////////////////////////////////*/
 /*////////////// Tasks ///////////////*/

@@ -14,9 +14,9 @@
       </div>
 
       <div class="actions">
-        <span><a href="?clear">All</a></span><!--
-        --><span><a href="?finish=no">Todo</a></span><!--
-        --><span><a href="?finish=yes">Completed</a></span>
+        <span class="<?= !isset($_SESSION['finish']) ? 'active' : ''?>"><a href="?clear">All</a></span><!--
+        --><span class="<?= $_SESSION['finish'] === 'no' ? 'active' : ''?>"><a href="?finish=no">Todo</a></span><!--
+        --><span class="<?= $_SESSION['finish'] === 'yes' ? 'active' : ''?>"><a href="?finish=yes">Completed</a></span>
       </div>
     </header>
 
