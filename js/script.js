@@ -4,6 +4,8 @@ var app = {
     // Un event 'click' sur l'icône d'édition du nom de la tâche
     $('.fa-pencil-square-o').on('click', app.editItem);
 
+    $('input[name=\'cancelNewName\']').on('click', app.cancelNewName)
+
     // 2 events pour l'affichage et le masquage de la fenêtre de choix des filtres catégories et couleurs
     $('#filterDisplayButton').on('click', app.displayFilters);
     $(document).on('click', app.hideFilters);
@@ -14,13 +16,11 @@ var app = {
   },
   editItem: function(evt) {
 
-    var editDiv = $(evt.target).parent().parent().prev();
+    var editDiv = $(evt.target).parent().parent().prev().prev();
     var itemTitle = editDiv.text().trim();
-    console.log(itemTitle);
 
-    var input = $('<input>').attr('type', 'text').val(itemTitle);
-    // editDiv.empty();
-    editDiv.append(input);
+    editDiv.parent().children('.task-name').hide();
+    editDiv.parent().children('#taskNameDiv').show();
 
   },
   displayFilters: function(evt) {
@@ -52,7 +52,7 @@ var app = {
     $('#newTaskColor').css('background', $(evt.target)[0].value);
 
   },
-  deleteConfirmation: function(taskId) {
+  deleteTaskConfirmation: function(taskId) {
 
     // On demande confirmation à l'utilisateur s'il souhaite vraiment supprimer la tâche sélectionnée
     var answer = confirm('Are you sure you want to delete this task ?');
@@ -62,6 +62,14 @@ var app = {
       $('#hiddenInputTaskDelete').val('rm-' + taskId);
       $('#hiddenFormTaskDelete').submit();
     }
+
+  },
+  cancelNewName: function(evt) {
+
+    var editDiv = $(evt.target).parent().parent().parent().parent();
+
+    editDiv.children('.task-name').show();
+    editDiv.children('#taskNameDiv').hide();
 
   }
 };

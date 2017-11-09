@@ -98,13 +98,10 @@ span.active a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: .8em 0 .8em .5em;
-
   border-bottom: 1px solid #CCC;
   border-left: 4px solid dimgray;
   border-radius: 5px 0 0 5px;
-
   transition: .05s ease-out;
 }
 
@@ -156,6 +153,18 @@ span.active a {
 
   font-size: .7em;
   color: #333;
+}
+
+#taskNameDiv {
+  display: none;
+}
+
+#taskNameDiv form {
+  display: inline-block;
+}
+
+#taskNameDiv form div {
+  display: inline-block;
 }
 
 .todo-item:not(:last-child) {

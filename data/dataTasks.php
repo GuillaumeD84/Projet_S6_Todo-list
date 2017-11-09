@@ -150,6 +150,16 @@ foreach ($tasksList as $key => $task) {
   }
 }
 
+// Boucle qui edit le nom des tâches d'après les données stockées dans $_SESSION
+if (isset($_SESSION['editedNameTasks'])) {
+  foreach ($tasksList as $key => $task) {
+
+    if (array_key_exists($task['id'], $_SESSION['editedNameTasks'])) {
+      $tasksList[$key]['title'] = $_SESSION['editedNameTasks'][$task['id']];
+    }
+  }
+}
+
 ?>
 
 <?php
