@@ -2,6 +2,7 @@
 
   $categoriesList = array();
 
+  // Liste des catégories disponibles
   $categoriesList = [
     'Misc.',
     'Chores',

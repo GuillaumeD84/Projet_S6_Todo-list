@@ -1,6 +1,8 @@
 <?php
 
+// Tableau de tâche(s) initiale(s)
 $tasksList = array();
+// Tableau final qui sera affiché sur la page
 $todoList = array();
 
 // Format par défault d'une tâche
@@ -12,6 +14,7 @@ $todoList = array();
 //   'status' => ''
 // ]
 
+// Définition des tâches initiales
 $tasksList = [
 
   [
@@ -122,16 +125,17 @@ $tasksList = [
 
 ];
 
+// On compte le nombre de tâche contenu dans tasksList (uniquement lors de la première visite)
 if (!isset($_SESSION['nbrTask'])) $_SESSION['nbrTask'] = count($tasksList);
 
-// On récupère les tâches ajoutées dans la session
+// On récupère les tâches ajoutées dans la '$_SESSION' et on les ajoute au début du tableau '$tasksList'
 if (isset($_SESSION['newTasks'])) {
   foreach ($_SESSION['newTasks'] as $newTask) {
     array_unshift($tasksList, $newTask);
   }
 }
 
-// Boucle qui edit les tâches
+// Boucle qui edit le status terminé/non terminé des tâches d'après les données stockées dans $_SESSION
 foreach ($tasksList as $key => $task) {
 
   if (array_key_exists($task['id'], $_SESSION['stateTasks'])) {
@@ -150,15 +154,17 @@ foreach ($tasksList as $key => $task) {
 
 <?php
 
-  // On stocke des données du '$_GET' dans notre '$_SESSION'
+  // Si l'URL ne contient pas de '$_GET' (effectif lorsque l'on clique sur le logo TodoLIST), on vide les filtres appliqués
   if (empty($_GET)) {
     unset($_SESSION['finish'], $_SESSION['category'], $_SESSION['color']);
   }
 
+  // Si '$_GET' contient 'clear' (effectif lorsque l'on clique sur All), on supprime le filtre 'finish' (qui permet d'afficher uniquement les tâches terminées ou non)
   if (isset($_GET['clear'])) {
     unset($_SESSION['finish']);
   }
 
+  // Ces 3 if elseif permettent de mixer les filtres appliqués. C'est à dire que l'on pourra appliquer des catégories, des couleurs et filtrer les tâches terminées/non terminées en même temps.
   if (isset($_GET['finish'])) {
     $_SESSION['finish'] = $_GET['finish'];
     $finishFilter = $_GET['finish'];
@@ -184,7 +190,7 @@ foreach ($tasksList as $key => $task) {
   }
 
 
-  // On filtre les tâches à afficher selon les données présentes dans le '$_GET'
+  // On filtre les tâches à afficher selon les filtres appliqués. On va remplir pas à pas le tableau '$todoList' avec les éléments présents dans '$tasksList' et si un des éléments de '$tasksList' de satisfait pas les filtres sélectionnés, on saute un tour de boucle grâce à 'continue;', c'est à dire que l'on ne met pas la tâche en question dans le tableau '$todoList'
   foreach ($tasksList as $key => $task) {
 
     if (isset($_SESSION['removedTasksId'])) {
@@ -205,6 +211,7 @@ foreach ($tasksList as $key => $task) {
       continue;
     }
 
+    // Si les critères d'affichages sont validés, on ajoute la tâche au tableau $todoList
     $todoList[] = $task;
   }
 
