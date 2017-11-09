@@ -127,7 +127,7 @@ if (!isset($_SESSION['nbrTask'])) $_SESSION['nbrTask'] = count($tasksList);
 // On récupère les tâches ajoutées dans la session
 if (isset($_SESSION['newTasks'])) {
   foreach ($_SESSION['newTasks'] as $newTask) {
-    $tasksList[] = $newTask;
+    array_unshift($tasksList, $newTask);
   }
 }
 
