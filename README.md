@@ -10,4 +10,7 @@ Formateur : Julien
 Type : HTML | CSS | JavaScript | PHP
 
 ## Objectif
-Créer une liste de tâches à faire.
+Créer une liste de tâches à faire en utilisant les 4 langages appris depuis le début de la formation.
+
+## Résultat
+![result](docs/result.png)
