@@ -2,7 +2,7 @@
 
 session_start();
 
-print_r($_POST);
+// print_r($_POST);
 
 empty($_POST['newTaskName']) ? $newTaskName = 'No title' : $newTaskName = $_POST['newTaskName'];
 
@@ -20,11 +20,23 @@ $_SESSION['newTasks'][] = [
 // print_r($_SESSION);
 // echo '</pre>';
 
-header('Location: ../index.php');
+$urlFilters = '';
 
-// $urlArguments = 'category%5B%5D='.$_SESSION['category'][0];
-// header('Location: ../?'.$urlArguments);
+if (isset($_SESSION['category'])) {
+  foreach ($_SESSION['category'] as $filteredCategory) {
+    $urlFilters .= 'category%5B%5D='.$filteredCategory.'&';
+  }
+}
 
+if (isset($_SESSION['color'])) {
+  foreach ($_SESSION['color'] as $filteredColor) {
+    $urlFilters .= 'color%5B%5D='.$filteredColor.'&';
+  }
+}
+
+$urlFilters = substr($urlFilters, 0, -1);
+
+header('Location: ../?'.$urlFilters);
 die();
 
 ?>
