@@ -10,6 +10,7 @@
         <p><?= $task['title']; ?></p><span class="task-category"> - <?= $task['category']; ?></span></div>
 
       <?php require('editTaskNameDiv.php') ?>
+      <?php require('editTaskTagsDiv.php') ?>
 
       <!-- Les 4 icônes pour l'édition de la tâche -->
       <div class="actions">

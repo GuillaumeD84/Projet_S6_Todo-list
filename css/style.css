@@ -155,15 +155,18 @@ span.active a {
   color: #333;
 }
 
-#taskNameDiv {
+#taskNameDiv,
+#taskTagsDiv {
   display: none;
 }
 
-#taskNameDiv form {
+#taskNameDiv form,
+#taskTagsDiv form {
   display: inline-block;
 }
 
-#taskNameDiv form div {
+#taskNameDiv form div,
+#taskTagsDiv form div {
   display: inline-block;
 }
 

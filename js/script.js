@@ -2,9 +2,14 @@ var app = {
   init: function() {
 
     // Un event 'click' sur l'icône d'édition du nom de la tâche
-    $('.fa-pencil-square-o').on('click', app.editItem);
+    $('.fa-pencil-square-o').on('click', app.editTask);
 
-    $('input[name=\'cancelNewName\']').on('click', app.cancelNewName)
+    // Un event 'click' sur l'icône d'édition des tags de la tâche
+    $('.fa-tags').on('click', app.editTask);
+
+    // On ajoute un event sur le bouton 'cancel' du form lorsque l'on souhaite modifier le nom d'une tâche
+    $('input[name=\'cancelNewName\']').on('click', app.cancelEdition);
+    $('input[name=\'cancelNewTags\']').on('click', app.cancelEdition);
 
     // 2 events pour l'affichage et le masquage de la fenêtre de choix des filtres catégories et couleurs
     $('#filterDisplayButton').on('click', app.displayFilters);
@@ -14,13 +19,35 @@ var app = {
     $('#newTaskColor').on('change', app.editSelectTagColor);
 
   },
-  editItem: function(evt) {
+  editTask: function(evt) {
 
+    // On récupère la tâche de la liste sur laquelle on souhaite modifier le nom
     var editDiv = $(evt.target).parent().parent().prev().prev();
+    // On supprime les espaces avant et après le texte
     var itemTitle = editDiv.text().trim();
 
+    // On cache le nom de la tâche et on affiche le formulaire d'édition du nom à la place
     editDiv.parent().children('.task-name').hide();
-    editDiv.parent().children('#taskNameDiv').show();
+
+    if (evt.target.className === 'fa fa-pencil-square-o') {
+      editDiv.parent().children('#taskTagsDiv').hide();
+      editDiv.parent().children('#taskNameDiv').show();
+    }
+    else if (evt.target.className === 'fa fa-tags') {
+      editDiv.parent().children('#taskNameDiv').hide();
+      editDiv.parent().children('#taskTagsDiv').show();
+    }
+
+  },
+  cancelEdition: function(evt) {
+
+    // On récupère la tâche de la liste affectée par la demande d'annulation de l'édition du nom
+    var editDiv = $(evt.target).parent().parent().parent().parent();
+
+    // On masque le formulaire d'édition et on réaffiche le nom à la place
+    editDiv.children('.task-name').show();
+    editDiv.children('#taskNameDiv').hide();
+    editDiv.children('#taskTagsDiv').hide();
 
   },
   displayFilters: function(evt) {
@@ -62,14 +89,6 @@ var app = {
       $('#hiddenInputTaskDelete').val('rm-' + taskId);
       $('#hiddenFormTaskDelete').submit();
     }
-
-  },
-  cancelNewName: function(evt) {
-
-    var editDiv = $(evt.target).parent().parent().parent().parent();
-
-    editDiv.children('.task-name').show();
-    editDiv.children('#taskNameDiv').hide();
 
   }
 };

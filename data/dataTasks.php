@@ -160,6 +160,17 @@ if (isset($_SESSION['editedNameTasks'])) {
   }
 }
 
+// Boucle qui edit les tags des tâches d'après les données stockées dans $_SESSION
+if (isset($_SESSION['editedTagsTasks'])) {
+  foreach ($tasksList as $key => $task) {
+
+    if (array_key_exists($task['id'], $_SESSION['editedTagsTasks'])) {
+      $tasksList[$key]['category'] = $_SESSION['editedTagsTasks'][$task['id']]['category'];
+      $tasksList[$key]['color'] = $_SESSION['editedTagsTasks'][$task['id']]['color'];
+    }
+  }
+}
+
 ?>
 
 <?php
